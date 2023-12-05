@@ -1,0 +1,8 @@
+{
+    "database" : {
+        "host" : "your_conection",
+        "user" : "your_user_name",
+        "password": "Passwod",
+        "dbname":"name_DB"
+    }
+}

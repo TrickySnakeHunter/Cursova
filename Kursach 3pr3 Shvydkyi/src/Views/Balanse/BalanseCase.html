@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../res/css/balance.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="conatiner">
+        <div class="replenishform">
+            <p class="logo">Sold</p>
+            <form method="post">
+                <label name="email">Enter email: </label>
+                <input class="email" type="email" name="UserEmail" placeholder="your email">
+                <br>
+                <label name="password">Enter password:</label>
+                <input class="pasw" type="password" name="UserPassword" placeholder="your password">
+                <br>
+                <label name="Amount">Enter amount:</label>
+                <input class="Amount" type="number" name="Amount" placeholder="your amount ">
+                <br>
+                <div class="submit_bottom">
+                    <input class="submit" type="submit" name="submit" value="submit">
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<?php
+$UserEmail="";
+$UserPassword ="";
+$Amount="";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['UserEmail']))
+        $UserEmail = $_POST['UserEmail'];
+    if (isset($_POST['UserPassword']))
+        $UserPassword = $_POST['UserPassword'];
+    if (isset($_POST['Amount']))
+        $Amount = $_POST['Amount'];
+
+
+
+    include($_SERVER['DOCUMENT_ROOT'] . "../src/Models/User/UserModel.php");
+    $actionModel = new UserModel();
+    try {
+        $action = $actionModel->getData('users', $UserEmail, "gmail");
+        foreach ($action as $v) {
+            if ($v["pswd"] == hash('sha256', $UserPassword)) {
+                $money = $actionModel->getData('balance', $v["id"], "idUser");
+                foreach ($money as $n) {
+                    $temp = $n['balanse'] + $Amount;
+                    $actionModel->setData("UPDATE `balance` SET `balanse`='" . $temp . "' WHERE `idUser`='" . $v["id"] . "'");
+                }
+            }
+        }
+    } catch (Exception $exception) {
+    }
+} ?>

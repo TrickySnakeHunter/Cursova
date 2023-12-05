@@ -1,0 +1,42 @@
+.action_container {
+ 
+ margin-top: 10px;
+
+ 
+}
+.filter_container{
+   
+}
+
+.list_filters_container {
+    
+   display: flex;
+    position:static;
+    overflow-x: scroll;
+    list-style-type: none;
+    padding: 0;
+    overflow: auto;
+
+   
+    
+    opacity: 92%;
+}
+
+.filter_nav_menu {
+    display: inline-flex;
+}
+
+.filter_nav_menu input {
+    background-color: #7a7977;
+    border-radius: 12px;
+    display: block;
+    color:rgb(231, 236, 236);
+    text-align: center;
+    padding: 8px 16px;
+    margin-left: 12px;
+    text-decoration: none;
+}
+
+.__active {
+    background-color: #F66E00;
+}

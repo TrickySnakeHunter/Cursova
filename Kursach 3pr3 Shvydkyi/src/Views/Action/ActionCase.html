@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="body_context">
+        <br><br>
+
+    </div>
+    <?php
+    $postData = "Transport";
+    $docRoot = $_SERVER['DOCUMENT_ROOT'];
+    if (isset($_COOKIE["Action"]))
+        $postData =  $_COOKIE["Action"];
+
+
+    include($_SERVER['DOCUMENT_ROOT'] . "../src/Models/Action/ActionModel.php");
+
+    $actionModel = new ActionModel();
+
+
+    if ($search = isset($_COOKIE["Search"])) {
+        $action = $actionModel->getData($postData, $search, "model");
+    } else
+        $action = $actionModel->getAllData($postData);
+
+
+
+    include($docRoot . "../src/Views/Action/" . $postData . ".html");
+    ?>
+
+</body>
+
+</html>

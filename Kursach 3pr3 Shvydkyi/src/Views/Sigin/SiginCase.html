@@ -1,0 +1,40 @@
+
+
+<link rel="stylesheet" href="../res/css/sigin.css">
+<div class="back_sigin">
+</div>
+<div class="container">
+    <input type="checkbox" id="check">
+    <div class="login form">
+        <header>Login</header>
+        <img>
+        <form method="post" accept="../src/Views/Sigin/Sigin.php">
+            <input type="text" name="mail" placeholder="Enter your email">
+            <input type="password" name="pass" placeholder="Enter your password">
+            <input type="submit" class="button" value="Login">
+        </form>
+        <div class="signup">
+            <span class="signup">Don't have an account?
+                <label for="check">Signup</label>
+            </span>
+        </div>
+    </div>
+
+    <div class="registration form">
+        <header>Signup</header>
+        <form method="post" accept="../src/Views/Sigin/Sigin.php">
+            <input type="text" name="name" placeholder="Enter your Name">
+            <input type="text" name="lastName" placeholder="Enter your Last Name">
+            <input type="text" name="phone" placeholder="Enter your phone">
+            <input type="text" name="mail" placeholder="Enter your email">
+            <input type="password" name="pass" placeholder="Create a password">
+            <input type="password" name="pass2" placeholder="Confirm your password">
+            <input type="submit" class="button" value="Signup">
+        </form>
+        <div class="signup">
+            <span class="signup">Already have an account?
+                <label for="check">Login</label>
+            </span>
+        </div>
+    </div>
+</div>

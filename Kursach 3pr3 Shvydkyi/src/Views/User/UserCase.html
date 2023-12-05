@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../res/css/user.css">
+</head>
+<body>
+    
+
+<div class="nav_bar">
+
+    <?php include($docRoot . "../src/Views/User/NavMenu.php");
+    if (isset($_POST["actions2"])) {
+        setcookie("Action2", $_POST["actions2"]);
+    }
+
+    ?>
+</div>
+<div class="context_user_data">
+    <div class="user_data">
+        <?php
+        $nameTable="Transport";
+        $print="";
+        include($_SERVER['DOCUMENT_ROOT'] . "../src/Models/User/UserModel.php");
+        $userModel = new UserModel();
+
+        if (isset($_COOKIE["Action2"])) {
+            $nameTable = $userModel->getName("" . $_COOKIE["Action2"]);
+            $data = $userModel->getData($_COOKIE["Action2"], $_COOKIE["UserNum"], "id_user");
+           
+        }
+        echo '<table class="table_data" id="myTable"><thead><tr>';
+        for ($i = 0; $i < count($nameTable); $i++)
+            echo '<th>' . $nameTable[$i] . '</th>';
+
+       
+        echo '</tr></thead><tbody><tr>';
+        foreach ($data as $row) {
+            for ($i = 0; $i < count($nameTable); $i++) {
+                if ($nameTable[$i] == "description") {
+                    echo '<td> <textarea name="comment">' . $row[$nameTable[$i]] . '</textarea></td>';
+                } else
+                    try {
+                        echo '<td> ' . $row[$nameTable[$i]] . ' </td>';
+                    } catch (Exception $ex) {
+                        echo '<td>   </td>';
+                    }
+            }
+            try {
+                $print = $row['id'];
+            } catch (Exception $ex) {
+                $print = "";
+            }
+
+            echo '<td>
+            <form action="../src/Views/User/User.php" method="post">
+           
+        
+            <label for="delete">Delete</label>
+            <input id = "delete" type="submit" name="delete" target="_blank" value= "' . $print . '">
+            </form>
+
+            
+                  </td>' . '</tr>';
+        }
+        echo ' <tr><td><form action="../src/Views/User/User.php" target="_blank" method="post">
+        <label for="new">Create</label> 
+
+        <input id = "new"  type="submit" name="new" value = "' . $print . '"></form>
+        </td></tr></tbody></table>';
+
+
+      
+        ?>
+    </div>
+</div>
+</body>
+</html>

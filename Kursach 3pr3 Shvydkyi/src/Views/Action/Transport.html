@@ -1,0 +1,35 @@
+<?php
+foreach ($action as $v) {
+?>
+   
+<div class="body_menu_container">
+    <div class="menu_container_list  ">
+        <div class="container_list_item">
+            <h3><?php  echo $v["model"] ?></h3>
+            <div class="text_list_item">
+            <p> Model transport:<?php echo $v["model"] ?>
+            <br>Quantity weels:<?php echo $v["weels"]  ?>
+            <br>Collor transport:<?php echo $v["color"] ?>
+             <br>Year created:<?php echo $v["year"]  ?>
+             <br>Num registration<?php echo $v["num_regestration"] ?>
+             <br>Gas transport <?php echo $v["gas"] ?></p>
+        
+          
+            <img <?php echo 'src="'. $v["img"].'"' ?>/>
+               
+            </div>
+            <div class="button_list">
+            <div class="button_list_item">
+            <form action="index.php" method="post">
+                            <button class="__active" name="outData" type="submit" value="<?php echo  $v['id']; ?>">Bet</button>
+                        </form>
+        </div>
+            </div>
+
+        </div>
+
+    </div>
+</div><?php
+}
+
+?>

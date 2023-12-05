@@ -1,0 +1,91 @@
+body{
+background-color: #7a7d7a;
+}
+.container{
+  width: 100%;
+  height: auto;
+  font-family: 'Courier New', Courier, monospace;
+  background: #7a7d7a;
+
+  position: absolute;
+  margin-top: 510px;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  max-width: 430px;
+  width: 100%;
+  background: #fff;
+  border-radius: 7px;
+ 
+  
+  
+}
+.container label{
+  background-color: #fff;
+  border-radius: 7px;
+}
+.container .registration{
+  display: none;
+}
+#check:checked ~ .registration{
+  display: block;
+}
+#check:checked ~ .login{
+  display: none;
+}
+#check{
+  display: none;
+}
+.container .form{
+  padding: 2rem;
+}
+.form header{
+  font-size: 2rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+ .form input{
+   height: 60px;
+   width: 100%;
+   padding: 0 15px;
+   font-size: 17px;
+   margin-bottom: 1.3rem;
+   color:black;
+   border: 1px solid #ddd;
+   border-radius: 6px;
+   outline: none;
+ }
+
+.form a{
+  font-size: 16px;
+  color: #7a7d7a;
+  text-decoration: none;
+}
+.form a:hover{
+  text-decoration: underline;
+}
+.form input.button{
+  color: #fff;
+  background: #7a7d7a;
+  font-size: 1.2rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-top: 1.7rem;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.form input.button:hover{
+  background: #7a7d7a;
+}
+.signup{
+  font-size: 17px;
+  text-align: center;
+}
+.signup label{
+  color: #7a7d7a;
+  cursor: pointer;
+}
+.signup label:hover{
+  text-decoration: underline;
+}

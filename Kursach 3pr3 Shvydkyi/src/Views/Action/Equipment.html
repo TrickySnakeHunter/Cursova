@@ -1,0 +1,38 @@
+<?php
+
+foreach ($action as $v) {
+?>
+   
+<div class="body_menu_container">
+    <div class="menu_container_list  ">
+        <div class="container_list_item">
+            <h3>  <?php echo $v["type"]?> </h3>
+            <div class="text_list_item">
+            <p> Mark: <?php echo $v["mark"]?> 
+            <br>Material: <?php echo $v["material"]  ?>
+            <br>Collor: <?php echo $v["color"] ?>
+             <br>Size: <?php echo $v["size"] ?> </p>
+        
+          
+            <img <?php echo 'src="'. $v["img"] .'"'?> />
+               
+            </div>
+            <div class="button_list">
+               
+                <div class="button_list_item">
+                <form action="index.php" method="post">
+                            <button class="__active" name="outData" type="submit" value="<?php echo  $v['id']; ?>">Bet</button>
+                        </form>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<?php
+}
+
+?>
