@@ -7,9 +7,7 @@
 -- Версія сервера: 10.4.27-MariaDB
 -- Версія PHP: 8.2.0
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
+
 
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -37,10 +35,7 @@ CREATE TABLE `balance` (
 -- Дамп даних таблиці `balance`
 --
 
-INSERT INTO `balance` (`id`, `idUser`, `balanse`) VALUES
-(59842, 152614, 1150),
-(208618, 795517, 0),
-(304900, 402124, 0);
+
 
 -- --------------------------------------------------------
 
@@ -70,8 +65,6 @@ CREATE TABLE `buisness` (
 -- Дамп даних таблиці `buisness`
 --
 
-INSERT INTO `buisness` (`id`, `name`, `type`, `products`, `services`, `licenses`, `certifications`, `capital`, `debts`, `staff`, `assets`, `founded`, `description`, `img`, `id_user`) VALUES
-(251149, '', '', '', 'tffyfy', '', '', 0, 0, 0, 0, '0000-00-00', '', 'https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg', 152614);
 
 -- --------------------------------------------------------
 
@@ -174,8 +167,6 @@ CREATE TABLE `trading` (
 -- Дамп даних таблиці `trading`
 --
 
-INSERT INTO `trading` (`id`, `id_lot`, `owner`, `winner`, `starting_price`, `winn_price`, `start_time`, `end_time`, `date`) VALUES
-(936293, 251149, 152614, 0, 0, 0, '00:00:00', '00:00:00', '0000-00-00');
 
 -- --------------------------------------------------------
 
@@ -218,11 +209,6 @@ CREATE TABLE `users` (
 -- Дамп даних таблиці `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `lastName`, `gmail`, `pswd`, `phone`) VALUES
-(0, 'no live', 'no live', 'null@null', 'null', 0),
-(152614, 'Олег', 'Швидкий', 'shvydkiy551@gmail.com', '4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2', 508076431),
-(402124, 'Олег', 'Швидкий', 'shvydkiy55@gmail.com', '4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2', 508076431),
-(795517, 'andrue', 'andrue', 'shvydkiy5@gmail.com', '4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2', 508076431);
 
 --
 -- Індекси збережених таблиць
